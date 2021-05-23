@@ -1,6 +1,10 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import{ SignInComponent} from './authenticate/sign-in/sign-in.component';
+import { SignUpComponent } from './authenticate/sign-up/sign-up.component';
+import { RequestPasswordComponent } from './authenticate/request-password/request-password.component';
 import {
+
   NbAuthComponent,
   NbLoginComponent,
   NbLogoutComponent,
@@ -10,6 +14,18 @@ import {
 } from '@nebular/auth';
 import {PromoteComponent} from './promote/promote.component';
 export const routes: Routes = [
+  {
+    path:'signin',
+    component:SignInComponent,
+  },
+  {
+    path:'signup',
+    component:SignUpComponent,
+  },
+  {
+    path:'forget-pass',
+    component:RequestPasswordComponent,
+  },
   {
     path:'promote',
     component:PromoteComponent,
@@ -25,15 +41,15 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        component: SignInComponent,
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: SignInComponent,
       },
       {
         path: 'register',
-        component: NbRegisterComponent,
+        component: SignUpComponent ,
       },
       {
         path: 'logout',
@@ -41,11 +57,11 @@ export const routes: Routes = [
       },
       {
         path: 'request-password',
-        component: NbRequestPasswordComponent,
+        component: RequestPasswordComponent,
       },
       {
         path: 'reset-password',
-        component: NbResetPasswordComponent,
+        component: RequestPasswordComponent,
       },
     ],
   },

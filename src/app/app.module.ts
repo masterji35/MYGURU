@@ -11,6 +11,10 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -21,14 +25,18 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { PromoteComponent } from './promote/promote.component';
-
+import {AuthenticateModule} from './authenticate/authenticate.module';
 @NgModule({
-  declarations: [AppComponent, PromoteComponent],
+  declarations: [AppComponent, PromoteComponent ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AuthenticateModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),

@@ -14,6 +14,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'SignIn',
+    icon: 'shopping-cart-outline',
+    link: '/signin',
+    home: true,
+  },
+  {
     title: 'IoT Dashboard',
     icon: 'home-outline',
     link: '/pages/iot-dashboard',
@@ -234,11 +240,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Login',
-        link: '/auth/login',
+        link: '/signin',
       },
       {
         title: 'Register',
-        link: '/auth/register',
+        link: '/signup',
       },
       {
         title: 'Request Password',
